@@ -13,6 +13,7 @@ const pool = mysql.createPool({
 })
 
 // guest crud
+//select de todos os convidados 
 app.get('/guest', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -32,6 +33,7 @@ app.get('/guest', (req, res) => {
     })
 })
 
+//select de dados da tabela guest feita pelo nome da tabela persons.
 app.get('/guest/name/:name', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -48,6 +50,7 @@ app.get('/guest/name/:name', (req, res) => {
     })
 });
 
+//update de dados da tabela guest feita pelo nome da tabela persons.
 app.put('/guest/name', (req, res) => {
 
     pool.getConnection((err, connection) => {

@@ -13,6 +13,8 @@ const pool = mysql.createPool({
 })
 
 // Persons Crud
+
+//select de todas as pessoas.
 app.get('/persons', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -32,6 +34,8 @@ app.get('/persons', (req, res) => {
     })
 })
 
+
+//select de dados da passoa feita com o numero de documento feito pelo header do browser.
 app.get('/persons/docs/:document', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -48,6 +52,7 @@ app.get('/persons/docs/:document', (req, res) => {
     })
 });
 
+//select de dados da passoa feita com o nome da pessoa feito pelo header do browser.
 app.get('/persons/name/:name', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -64,6 +69,7 @@ app.get('/persons/name/:name', (req, res) => {
     })
 });
 
+//delete de dados da passoa feita com o numero de documento feito pelo header do browser.
 app.delete('/persons/docs/:document', (req, res) => {
 
     pool.getConnection((err, connection) => {
@@ -81,6 +87,7 @@ app.delete('/persons/docs/:document', (req, res) => {
     })
 });
 
+//insert de dados da passoa feita pelo body.
 app.post('/persons', (req, res) => {
 
     pool.getConnection((err, connection) => {
@@ -101,6 +108,7 @@ app.post('/persons', (req, res) => {
     })
 });
 
+//update de dados da passoa feita com o numero de documento feito pelo body.
 app.put('/persons/docs/', (req, res) => {
 
     pool.getConnection((err, connection) => {
